@@ -1,5 +1,7 @@
 import { ChangeEvent, SyntheticEvent, useState } from "react";
 import { RxCross2 } from "react-icons/rx";
+import { useDispatch } from "react-redux";
+import { addNewContact } from "../redux/features/contact/contactSlice";
 interface FormTarget {
      firstName: { value: string };
      lastName: { value: string };
@@ -7,6 +9,7 @@ interface FormTarget {
 }
 
 const AddNewContactForm = () => {
+     const dispatch = useDispatch();
      const [status, setStatus] = useState("Active");
      const handleStatusChange = (e: ChangeEvent<HTMLInputElement>) => {
           setStatus(e.target.value);
@@ -22,7 +25,7 @@ const AddNewContactForm = () => {
                lastName,
                status,
           };
-          console.log(contact);
+          dispatch(addNewContact(contact));
      };
 
      return (
