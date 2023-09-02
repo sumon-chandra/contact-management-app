@@ -1,3 +1,5 @@
+import { useDispatch } from "react-redux";
+import { deleteContact } from "../redux/features/contact/contactSlice";
 import { Contact } from "../types";
 import { FaTrash, FaEdit } from "react-icons/fa";
 
@@ -6,7 +8,12 @@ interface ContactCardProps {
 }
 
 const ContactCard = ({ contact }: ContactCardProps) => {
-     const { firstName, lastName, status } = contact;
+     const dispatch = useDispatch();
+     const { firstName, lastName, status, id } = contact;
+
+     const handleDelete = () => {
+          dispatch(deleteContact(id!));
+     };
      return (
           <div className="w-full p-4 bg-white rounded-lg shadow-xl shadow-gray-200">
                <p>
@@ -20,7 +27,7 @@ const ContactCard = ({ contact }: ContactCardProps) => {
                     <span>{status}</span>
                </p>
                <div className="flex items-center justify-end gap-4 mt-6 text-xl">
-                    <FaTrash className="text-red-500 cursor-pointer" />
+                    <FaTrash onClick={handleDelete} className="text-red-500 cursor-pointer" />
                     <FaEdit className="text-blue-500 cursor-pointer" />
                </div>
           </div>
