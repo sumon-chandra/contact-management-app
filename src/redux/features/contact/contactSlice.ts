@@ -24,8 +24,26 @@ export const contactSlice = createSlice({
                localStorage.setItem("CONTACTS", JSON.stringify(filteredState.map(contact => contact)));
                return filteredState;
           },
+          updateContact: (state, action: PayloadAction<Contact>) => {
+               const { firstName, lastName, status, id } = action.payload;
+               const contactIndex = state.findIndex(contact => contact.id === id);
+               console.log(status);
+
+               if (contactIndex !== -1) {
+                    const updatedContact: Contact = {
+                         firstName,
+                         lastName,
+                         status,
+                         id,
+                    };
+                    state[contactIndex] = updatedContact;
+                    console.log(state);
+
+                    localStorage.setItem("CONTACTS", JSON.stringify(state));
+               }
+          },
      },
 });
 
-export const { addNewContact, deleteContact } = contactSlice.actions;
+export const { addNewContact, deleteContact, updateContact } = contactSlice.actions;
 export default contactSlice.reducer;

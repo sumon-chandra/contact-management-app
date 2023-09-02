@@ -5,7 +5,7 @@ const Sidebar = () => {
      return (
           <div className="drawer lg:drawer-open">
                <input id="sidebar" type="checkbox" className="drawer-toggle" />
-               <div className="drawer-content bg-slate-200">
+               <div className="min-h-screen drawer-content bg-slate-200">
                     {/* Page content here */}
                     <Outlet />
                     <label htmlFor="sidebar" className="absolute drawer-button top-4 left-4 lg:hidden">
