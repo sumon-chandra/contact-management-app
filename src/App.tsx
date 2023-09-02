@@ -3,12 +3,12 @@ import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } 
 // Pages
 import Contacts from "./pages/Contacts";
 import Dashboard from "./pages/Dashboard";
-import RootLayout from "./layout/RootLayout";
+import Sidebar from "./components/Sidebar";
 
 function App() {
      const router = createBrowserRouter(
           createRoutesFromElements(
-               <Route element={<RootLayout />}>
+               <Route element={<Sidebar />}>
                     <Route path="/" element={<Contacts />} />
                     <Route path="/dashboard" element={<Dashboard />} />
                </Route>

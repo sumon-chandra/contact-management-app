@@ -1,19 +1,20 @@
 import { BiMenu } from "react-icons/bi";
-import { NavLink } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 const Sidebar = () => {
      return (
-          <div className="drawer lg:drawer-open w-10">
+          <div className="drawer lg:drawer-open">
                <input id="sidebar" type="checkbox" className="drawer-toggle" />
-               <div className="drawer-content flex flex-col items-center justify-center">
+               <div className="drawer-content bg-slate-200">
                     {/* Page content here */}
-                    <label htmlFor="sidebar" className="drawer-button lg:hidden">
-                         <BiMenu className="text-2xl" />
+                    <Outlet />
+                    <label htmlFor="sidebar" className="absolute drawer-button top-4 left-4 lg:hidden">
+                         <BiMenu className="text-4xl" />
                     </label>
                </div>
                <div className="drawer-side">
                     <label htmlFor="sidebar" className="drawer-overlay"></label>
-                    <ul className="menu p-4 lg:w-60 space-y-4 w-1/2 min-h-full bg-white text-base-content font-semibold lg:text-xl">
+                    <ul className="w-1/2 min-h-full p-4 space-y-4 font-semibold bg-white menu lg:w-60 text-base-content lg:text-xl">
                          {/* Sidebar content here */}
                          <li>
                               <NavLink to="/">Contacts</NavLink>
