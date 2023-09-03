@@ -22,7 +22,7 @@ const Chart = () => {
      const { data = {} } = useQuery({
           queryKey: ["case-chart"],
           queryFn: async () => {
-               const response = await axios("https://disease.sh/v3/covid-19/historical/all?lastdays");
+               const response = await axios("https://disease.sh/v3/covid-19/historical/all?lastdays=all");
                return await response.data;
           },
      });
