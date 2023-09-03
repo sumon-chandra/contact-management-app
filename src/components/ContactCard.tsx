@@ -17,7 +17,9 @@ const ContactCard = ({ contact }: ContactCardProps) => {
           dispatch(deleteContact(id!));
      };
      return (
-          <div className="w-full p-4 bg-white rounded-lg shadow-xl shadow-gray-200">
+          <div
+               className={`w-full p-4 ${status === "Inactive" ? "bg-red-50 border border-red-400" : "bg-white"} rounded-lg shadow-xl shadow-gray-200`}
+          >
                <p>
                     <span className="font-semibold">First Name : </span> <span>{firstName}</span>
                </p>

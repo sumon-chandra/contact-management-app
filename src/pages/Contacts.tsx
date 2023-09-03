@@ -1,5 +1,4 @@
 import { useSelector } from "react-redux";
-import AddNewContactForm from "../components/AddNewContactForm";
 import { RootState } from "../redux/app/store";
 import ContactCard from "../components/ContactCard";
 import { useNavigate } from "react-router-dom";
@@ -9,7 +8,7 @@ const Contacts = () => {
      const contacts = useSelector((state: RootState) => state.contact);
 
      return (
-          <section className="flex-col items-start justify-start min-h-screen gap-10 p-4 mt-8 lg:flex lg:p-10">
+          <section className="flex-col items-start justify-start min-h-screen gap-10 p-4 pt-8 lg:flex lg:p-10">
                <div className="flex justify-end w-full">
                     <button
                          onClick={() => navigate("/create-contact")}
