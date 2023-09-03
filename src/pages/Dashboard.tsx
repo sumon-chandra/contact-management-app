@@ -1,8 +1,13 @@
+import Chart from "../components/Chart";
+
 const Dashboard = () => {
      return (
-          <div>
-               <h3>This is Dashboard page</h3>
-          </div>
+          <section className="w-full">
+               <h3 className="mt-8 text-lg font-semibold text-center lg:text-2xl">The cases fluctuations and map</h3>
+               <div>
+                    <Chart />
+               </div>
+          </section>
      );
 };
 

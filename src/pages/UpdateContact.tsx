@@ -14,9 +14,9 @@ const UpdateContact = () => {
      const { id } = useParams();
      const navigate = useNavigate();
      const dispatch = useDispatch();
-     const [status, setStatus] = useState("Active");
      const contacts = useSelector((state: RootState) => state.contact);
      const findContact = contacts.find(contact => contact.id === id);
+     const [status, setStatus] = useState(findContact?.status || "Active");
 
      const handleStatusChange = (e: ChangeEvent<HTMLInputElement>) => {
           setStatus(e.target.value);
@@ -73,7 +73,7 @@ const UpdateContact = () => {
                                    <input
                                         type="radio"
                                         name="active"
-                                        checked={findContact?.status === "Active"}
+                                        checked={status === "Active"}
                                         onChange={handleStatusChange}
                                         id="active"
                                         value="Active"
@@ -84,7 +84,7 @@ const UpdateContact = () => {
                                    <input
                                         type="radio"
                                         name="inactive"
-                                        checked={findContact?.status === "Inactive"}
+                                        checked={status === "Inactive"}
                                         onChange={handleStatusChange}
                                         id="inactive"
                                         value="Inactive"

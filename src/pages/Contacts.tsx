@@ -19,11 +19,17 @@ const Contacts = () => {
                     </button>
                </div>
                {/* ================ All Contacts =============== */}
-               <div className="grid-cols-4 gap-10 mt-10 space-y-8 lg:grid lg:space-y-0 lg:mt-0">
-                    {contacts.map(contact => (
-                         <ContactCard contact={contact} key={contact.id} />
-                    ))}
-               </div>
+               {contacts.length === 0 ? (
+                    <div className="flex items-center justify-center">
+                         <h3 className="text-3xl text-gray-700 lg:text-7xl">There is no Contact</h3>
+                    </div>
+               ) : (
+                    <div className="grid-cols-4 gap-10 mt-10 space-y-8 lg:grid lg:space-y-0 lg:mt-0">
+                         {contacts.map(contact => (
+                              <ContactCard contact={contact} key={contact.id} />
+                         ))}
+                    </div>
+               )}
           </section>
      );
 };
